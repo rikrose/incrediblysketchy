@@ -1,7 +1,7 @@
 import { FIND_BLOG_POST_BY_SLUG_QUERY, FIND_NEXT_AND_PREVIOUS_BLOG_POSTS_QUERY } from "@incrediblysketchy/shared-types";
 import { Article, FIND_BLOG_POST_BY_SLUG_QUERYResult, FIND_NEXT_AND_PREVIOUS_BLOG_POSTS_QUERYResult } from "@incrediblysketchy/shared-types/sanity-types";
 import { sanityFetch } from "~/hooks/sanity-client";
-import { type Gallery, type HeadlineSection, type TextWithImage, type Video, type textblockType } from "@incrediblysketchy/shared-types/sanity-types";
+import { type Gallery, type HeadlineSection, type TextWithImage, type Video, type Textblock } from "@incrediblysketchy/shared-types/sanity-types";
 import { PortableText, PortableTextBlock } from "@portabletext/react"
 import clsx from "clsx";
 
@@ -52,10 +52,12 @@ function VideoSection({value, isInline}: PortableTextProps){
 
 function HeadlineSectionSection({value, isInline}: PortableTextProps){
     const section = value as HeadlineSection;
+    if (!section.title)
+        return null;
     if (!section.Styling){
         return <div className="text-6xl mx-auto">{section.title}</div>
     }
-    const cls = clsx("container", "mx-auto", "inline-block", "bg-gradient-to-r", "bg-clip-text", "text-8xl", "text-transparent", section.Styling.split(" ")) 
+    const cls = clsx("inline-block", "bg-gradient-to-r", "bg-clip-text", "text-8xl", "text-transparent", section.Styling.split(" ")) 
     return <div className={cls}>{section.title}</div>
 }
 
@@ -69,7 +71,10 @@ function TextWithImageSection({value, isInline}: PortableTextProps){
 }
 
 function TextBlockSection({value, isInline}: PortableTextProps){
-    const section = value as textblockType;
+    const section = value as Textblock;
+
+    if (!section?.text)
+        return null;
     return <PortableText value={section.text} />
 }
 
@@ -82,8 +87,6 @@ const sectionComponents = {
         "textblock": TextBlockSection
     }
 }
-
-type ArticleSectionTypes = Extract<FIND_BLOG_POST_BY_SLUG_QUERYResult[pageBuilder], _type>; 
 
 function RenderArticle({article, nextAndPreviousArticles} : ArticleProps) {
     return <>{article.pageBuilder?.map(element => {
@@ -99,6 +102,6 @@ export default async function ArticlePage({params}: {params: {slug: string}}) {
     }
 
     const nextAndPreviousArticles = await getPreviousAndNextArticles(params.slug);
-
+    
     return <RenderArticle article={article} nextAndPreviousArticles={nextAndPreviousArticles} />;
 }

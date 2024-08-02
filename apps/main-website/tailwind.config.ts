@@ -11,7 +11,7 @@ export default {
     },
   },
   plugins: [
-    //require('@tailwindcss/typography'),
-    //require("@catppuccin/tailwindcss")({defaultFlavor: "macchiato"})
+    require('@tailwindcss/typography'),
+    require("@catppuccin/tailwindcss")({defaultFlavor: "macchiato"})
   ],
 } satisfies Config;

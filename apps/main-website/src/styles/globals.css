@@ -2,16 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-
-/*(
 @layer base {
     body {
         @apply macchiato bg-base text-text w-full h-screen
     }
-    h3 {
+    h2 {
         @apply text-4xl font-bold tracking-tighter mb-4 decoration-red underline underline-offset-4
     }
-    h2 {
+    h3 {
         @apply text-2xl font-bold tracking-tight decoration-red underline underline-offset-4
     }
     p {
@@ -30,4 +28,3 @@
         @apply mb-4
     }
 }
-    */

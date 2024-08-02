@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/*(
+@layer base {
+    body {
+        @apply macchiato bg-base text-text w-full h-screen
+    }
+    h3 {
+        @apply text-4xl font-bold tracking-tighter mb-4 decoration-red underline underline-offset-4
+    }
+    h2 {
+        @apply text-2xl font-bold tracking-tight decoration-red underline underline-offset-4
+    }
+    p {
+        @apply text-text
+    }
+
+    a {
+        @apply text-blue
+    }
+
+    ul {
+        @apply list-disc text-text
+    }
+
+    .method ul li {
+        @apply mb-4
+    }
+}
+    */

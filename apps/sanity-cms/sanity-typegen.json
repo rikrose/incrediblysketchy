@@ -1,0 +1,5 @@
+{
+  "path": ["**/*.ts,tsx,js,jsx", "../../packages/shared-types/src/groq-searches.ts"],
+  "schema": "schema.json",
+  "generates": "../../packages/shared-types/src/sanity-types.ts"
+}

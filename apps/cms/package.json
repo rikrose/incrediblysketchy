@@ -1,0 +1,55 @@
+{
+  "name": "cms",
+  "version": "1.0.0",
+  "description": "A blank template to get started with Payload 3.0",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "cross-env NODE_OPTIONS=--no-deprecation next build",
+    "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev",
+    "devsafe": "rm -rf .next && cross-env NODE_OPTIONS=--no-deprecation next dev",
+    "lint": "cross-env NODE_OPTIONS=--no-deprecation next lint",
+    "start": "cross-env NODE_OPTIONS=--no-deprecation next start",
+    "payload": "payload",
+    "generate:types": "payload generate:types",
+    "generate:importmap": "payload generate:importmap"
+  },
+  "dependencies": {
+    "@payloadcms/db-postgres": "beta",
+    "@payloadcms/next": "beta",
+    "@payloadcms/plugin-cloud": "beta",
+    "@payloadcms/richtext-lexical": "beta",
+    "@payloadcms/ui": "3.0.0-beta.81",
+    "@t3-oss/env-nextjs": "^0.10.1",
+    "cross-env": "^7.0.3",
+    "graphql": "^16.9.0",
+    "next": "15.0.0-canary.104",
+    "payload": "beta",
+    "payload-auth-plugin": "^0.2.0",
+    "react": "19.0.0-rc-06d0b89e-20240801",
+    "react-dom": "19.0.0-rc-06d0b89e-20240801",
+    "sharp": "0.32.6",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.15",
+    "@types/react": "npm:types-react@19.0.0-rc.0",
+    "@types/react-dom": "npm:types-react-dom@19.0.0-rc.0",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "15.0.0-canary.104",
+    "typescript": "5.5.4"
+  },
+  "engines": {
+    "node": "^18.20.2 || >=20.9.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "@types/react": "npm:types-react@19.0.0-rc.0",
+      "@types/react-dom": "npm:types-react-dom@19.0.0-rc.0"
+    }
+  },
+  "overrides": {
+    "@types/react": "npm:types-react@19.0.0-rc.0",
+    "@types/react-dom": "npm:types-react-dom@19.0.0-rc.0"
+  }
+}

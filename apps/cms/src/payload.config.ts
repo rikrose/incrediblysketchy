@@ -1,6 +1,6 @@
 // storage-adapter-import-placeholder
-import { vercelPostgresAdapter } from '@payloadcms/db-vercel-postgres'
-//import { postgresAdapter } from '@payloadcms/db-postgres'
+// import { vercelPostgresAdapter } from '@payloadcms/db-vercel-postgres'
+import { postgresAdapter } from '@payloadcms/db-postgres'
 
 import { payloadCloudPlugin } from '@payloadcms/plugin-cloud'
 import { formBuilderPlugin } from '@payloadcms/plugin-form-builder'
@@ -117,9 +117,8 @@ export default buildConfig({
       ]
     },
   }),
-  db: 
-  /* postgresAdapter({ */ 
-  vercelPostgresAdapter({ 
+  db:  postgresAdapter({
+  /* vercelPostgresAdapter({ */
     pool: {
       connectionString: env.DATABASE_URI || '',
     },

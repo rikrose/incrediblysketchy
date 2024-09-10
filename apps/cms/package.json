@@ -18,17 +18,17 @@
     "start": "cross-env NODE_OPTIONS=--no-deprecation next start"
   },
   "dependencies": {
-    "@payloadcms/db-postgres": "3.0.0-beta.100",
-    "@payloadcms/db-vercel-postgres": "beta",
-    "@payloadcms/live-preview-react": "beta",
-    "@payloadcms/next": "beta",
-    "@payloadcms/plugin-cloud": "beta",
-    "@payloadcms/plugin-form-builder": "beta",
-    "@payloadcms/plugin-nested-docs": "beta",
-    "@payloadcms/plugin-redirects": "beta",
-    "@payloadcms/plugin-seo": "beta",
-    "@payloadcms/richtext-lexical": "beta",
-    "@payloadcms/ui": "beta",
+    "@payloadcms/db-postgres": "3.0.0-beta.102",
+    "@payloadcms/db-vercel-postgres": "3.0.0-beta.102",
+    "@payloadcms/live-preview-react": "3.0.0-beta.102",
+    "@payloadcms/next": "3.0.0-beta.102",
+    "@payloadcms/plugin-cloud": "3.0.0-beta.102",
+    "@payloadcms/plugin-form-builder": "3.0.0-beta.102",
+    "@payloadcms/plugin-nested-docs": "3.0.0-beta.102",
+    "@payloadcms/plugin-redirects": "3.0.0-beta.102",
+    "@payloadcms/plugin-seo": "3.0.0-beta.102",
+    "@payloadcms/richtext-lexical": "3.0.0-beta.102",
+    "@payloadcms/ui": "3.0.0-beta.102",
     "@radix-ui/react-checkbox": "^1.1.1",
     "@radix-ui/react-label": "^2.1.0",
     "@radix-ui/react-select": "^2.1.1",
@@ -74,12 +74,6 @@
   },
   "engines": {
     "node": "^18.20.2 || >=20.9.0"
-  },
-  "pnpm": {
-    "overrides": {
-      "@types/react": "npm:types-react@19.0.0-rc.0",
-      "@types/react-dom": "npm:types-react-dom@19.0.0-rc.0"
-    }
   },
   "overrides": {
     "@types/react": "npm:types-react@19.0.0-rc.0",

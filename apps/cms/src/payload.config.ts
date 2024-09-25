@@ -1,5 +1,4 @@
 // storage-adapter-import-placeholder
-// import { vercelPostgresAdapter } from '@payloadcms/db-vercel-postgres'
 import { postgresAdapter } from '@payloadcms/db-postgres'
 
 import { payloadCloudPlugin } from '@payloadcms/plugin-cloud'
@@ -33,8 +32,6 @@ import { revalidateRedirects } from './hooks/revalidateRedirects'
 import { GenerateTitle, GenerateURL } from '@payloadcms/plugin-seo/types'
 import { Page, Post } from 'src/payload-types'
 
-import { env } from './env'
-
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
@@ -44,8 +41,8 @@ const generateTitle: GenerateTitle<Post | Page> = ({ doc }) => {
 
 const generateURL: GenerateURL<Post | Page> = ({ doc }) => {
   return doc?.slug
-    ? `${env.NEXT_PUBLIC_SERVER_URL!}/${doc.slug}`
-    : env.NEXT_PUBLIC_SERVER_URL!
+    ? `${process.env.NEXT_PUBLIC_SERVER_URL!}/${doc.slug}`
+    : process.env.NEXT_PUBLIC_SERVER_URL!
 }
 
 export default buildConfig({
@@ -117,16 +114,14 @@ export default buildConfig({
       ]
     },
   }),
-  db:  postgresAdapter({
-  /* vercelPostgresAdapter({ */
+  db: postgresAdapter({
     pool: {
-      connectionString: env.DATABASE_URI || '',
+      connectionString: process.env.DATABASE_URI || '',
     },
   }),
   collections: [Pages, Posts, Media, Categories, Users],
-  cors: [env.PAYLOAD_PUBLIC_SERVER_URL || ''].filter(Boolean),
-  csrf: [env.PAYLOAD_PUBLIC_SERVER_URL || ''].filter(Boolean),
-  debug: true,
+  cors: [process.env.PAYLOAD_PUBLIC_SERVER_URL || ''].filter(Boolean),
+  csrf: [process.env.PAYLOAD_PUBLIC_SERVER_URL || ''].filter(Boolean),
   endpoints: [
     // The seed endpoint is used to populate the database with some example data
     // You should delete this endpoint before deploying your site to production
@@ -195,7 +190,7 @@ export default buildConfig({
     }),
     payloadCloudPlugin(), // storage-adapter-placeholder
   ],
-  secret: env.PAYLOAD_SECRET!,
+  secret: process.env.PAYLOAD_SECRET!,
   sharp,
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),

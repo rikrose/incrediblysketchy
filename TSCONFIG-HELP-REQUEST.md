@@ -7,7 +7,7 @@ The apps are Payload (in /apps/cms) and an unstarted frontend (in /apps/nextjs).
 
 # Whats the problem?
 app/cms/src/payload.config.ts, line 194 has a problem:
-````
+```
 Type 'typeof sharp' is not assignable to type 'SharpDependency'.
   Types of parameters 'options' and 'input' are incompatible.
     Type 'string | ArrayBuffer | Buffer | Float32Array | Float64Array | Int8Array | Int16Array | Int32Array | ... 4 more ... | undefined' is not assignable to type 'SharpOptions | undefined'.

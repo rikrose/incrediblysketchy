@@ -3,7 +3,6 @@ I am now completely at a loss. According to the commits, nothing has changed, so
 Here's how to replicate this:
 
 - `git clone` the repo.
-- `git checkout startover`
 - `pnpm install`
 - Create yourself a postgresql database - neon will work just fine for this, as will local if you have it installed already. Grab the connection string.
 - Create: `apps/cms/.env` with the following:

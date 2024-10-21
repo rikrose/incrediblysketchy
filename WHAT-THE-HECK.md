@@ -1,6 +1,6 @@
 I am now completely at a loss. According to the commits, nothing has changed, so this is now a tooling problem that I don't understand.
 
-Here's what I did this morning.
+Here's how to replicate this:
 
 - `git clone` the repo.
 - `git checkout startover`
